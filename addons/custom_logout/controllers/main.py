@@ -1,16 +1,19 @@
 from odoo import http
+from odoo.http import request
+
 
 class CustomLogout(http.Controller):
     @http.route('/web/session/logout', type='http', auth="user")
     def web_logout(self, redirect=None):
-
-        # Perform any custom actions here
-        # Custom redirect URL
-        redirect_url = 'http://www.lsmsp.cn'  # 自定义跳转路径
+        # 使当前用户会话过期
+        request.session.logout()
+        # 自定义跳转路径
+        redirect_url = 'http://www.lsmsp.cn'
 
         # Construct HTTP response with redirect status
         response = http.Response()
-        response.status = 302  # 302 Found (temporary redirect)
+        # 302 Found (temporary redirect)
+        response.status = 302
         response.headers['Location'] = redirect_url
 
         return response
