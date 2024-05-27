@@ -7,8 +7,13 @@ class CustomLogout(http.Controller):
     def web_logout(self, redirect=None):
         # 使当前用户会话过期
         request.session.logout()
+
+        # 获取当前浏览器访问的主机名和端口
+        host = request.httprequest.host
+
         # 自定义跳转路径
-        redirect_url = 'http://www.lsmsp.cn'
+        #redirect_url = 'http://www.lsmsp.cn'
+        redirect_url = f'http://{host}/www.lsmsp.cn'
 
         # Construct HTTP response with redirect status
         response = http.Response()
