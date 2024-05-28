@@ -1,11 +1,11 @@
 {
     'name': 'Custom Auto Login',
     'version': '1.0',
-    'category': 'Custom',
+    'category': 'Services',     #用于在应用列表中对模块进行分类
     'depends': ['web'],
     'data': [],
-    'installable': True,
-    'auto_install': False,
+    'installable': True,        #模块是否可安装
+    'auto_install': False,      #模块是否自动安装
     'license': 'LGPL-3',
     'application': True,        #是否显示在apps列表里面
     'summary':'A module for auto login using session_id',#简短说明
