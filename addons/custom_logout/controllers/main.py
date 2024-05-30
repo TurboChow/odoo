@@ -1,6 +1,6 @@
 from odoo import http
 from odoo.http import request
-
+from urllib.parse import urlsplit, urlunsplit
 
 class CustomLogout(http.Controller):
     @http.route('/web/session/logout', type='http', auth="user")
@@ -13,7 +13,15 @@ class CustomLogout(http.Controller):
 
         # 自定义跳转路径
         #redirect_url = 'http://www.lsmsp.cn'
-        redirect_url = f'http://{host}/www.lsmsp.cn'
+
+        # 自定义跳转路径，带端口号
+        #redirect_url = f'http://{host}/avatar-digital-management-web/#/login'
+
+        #自定义跳转路径，不带端口号
+        host_without_port = urlsplit(f'http://{host}').hostname
+        redirect_url = f'http://{host_without_port}/avatar-digital-management-web/#/login'
+
+
 
         # Construct HTTP response with redirect status
         response = http.Response()

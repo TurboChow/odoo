@@ -1,4 +1,4 @@
 1、修改odoo.conf数据库配置信息；（数据库启动：docker run -d -e POSTGRES_USER=odoo  -e POSTGRES_PASSWORD=odoo  -e POSTGRES_DB=postgres --name postgresql -p 5432:5432  postgres:15）
-2、./odoo-bin -c odoo.conf -d odoo -i custom_auto_login
+2、./odoo-bin -c odoo.conf -i custom_auto_login,custom_title
 3、访问自定义登录模块:http://ip:8069/custom_auto_login?login=odoo@odoo.com&password=12345678&db=odoo&redirect=/web
 4、自定义登出模块的URL在odoo/addons/custom_logout/controllers/main.py中修改
