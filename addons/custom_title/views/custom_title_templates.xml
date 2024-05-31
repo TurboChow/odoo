@@ -1,0 +1,30 @@
+<!-- my_module/views/my_template.xml -->
+<odoo>
+    <template id="my_view" name="My Custom View">
+        <t t-esc="my_title"/>
+    </template>
+    <!-- Custom Title for Main Layout -->
+    <template id="my_view_my_view" inherit_id="website.layout">
+        <xpath expr="//title" position="replace">
+            <title t-esc="request.env['custom.title']._get_my_title()"/>
+        </xpath>
+    </template>
+
+    <!-- Custom Title for Specific Page -->
+    <template id="my_specific_page_view" inherit_id="web.layout">
+        <xpath expr="//title" position="replace">
+            <title t-esc="request.env['custom.title']._get_my_title()"/>
+        </xpath>
+    </template>
+
+
+<!--    <template id="my_login_page_view" inherit_id="web.login_layout">-->
+<!--        <xpath expr="//title" position="replace">-->
+<!--            <t debug="true"/>-->
+<!--            <title t-esc="request.env['custom.title'].sudo()._get_my_title()"/>-->
+<!--        </xpath>-->
+<!--    </template>-->
+
+
+
+</odoo>

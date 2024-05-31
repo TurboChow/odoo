@@ -19,7 +19,7 @@ class CustomLogout(http.Controller):
 
         #自定义跳转路径，不带端口号
         host_without_port = urlsplit(f'http://{host}').hostname
-        redirect_url = f'http://{host_without_port}/avatar-digital-management-web/#/login'
+        redirect_url = f'http://{host_without_port}/avatar-digital-management-web/#/login?from2ccp=hsnotk'
 
 
 

@@ -9,4 +9,4 @@ services:
     volumes:
       - /opt/odoo/config:/etc/odoo
       - /opt/odoo/addons/17.0:/mnt/extra-addons/17.0
-    command: ["odoo","-c","/etc/odoo/odoo.conf","-i","custom_auto_login,custom_logout"]
+    command: ["odoo","-c","/etc/odoo/odoo.conf","-i","custom_auto_login,custom_logout,custom_login_ccp"]
